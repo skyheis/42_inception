@@ -16,6 +16,7 @@ RUN apk update && apk upgrade && apk add --no-cache \
     php8-redis \
 	wget \
 	tar \
+	bash \
     rm -f /var/cache/apk/*
 # FROM debian:stable-20230411
 
