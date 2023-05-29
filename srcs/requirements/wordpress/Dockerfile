@@ -6,7 +6,7 @@ FROM debian:stable-20230411
 # 	php7.4-xmlrpc php7.4-zip wget vim \
 #  	&& rm -rf /var/lib/apt/lists/*
 
-RUN apt update && apt install software-properties-common
+RUN apt update && apt install -y software-properties-common
 RUN add-apt-repository ppa:ondrej/php -y && apt-get update && apt-get install -y \
 	php8.0-fpm php8.0-common php8.0-mysql \
 	php8.0-xml php8.0-xmlrpc php8.0-curl php8.0-gd \
