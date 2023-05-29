@@ -1,13 +1,19 @@
 FROM debian:stable-20230411
 
+# RUN apt-get update && apt-get install -y \
+#  	php7.4 php7.4-mysql php7.4-fpm php7.4-curl php7.4-gd \
+# 	php7.4-intl php7.4-mbstring php7.4-soap php7.4-xml \
+# 	php7.4-xmlrpc php7.4-zip wget vim \
+#  	&& rm -rf /var/lib/apt/lists/*
+
 RUN apt-get update && apt-get install -y \
- 	php7.4 php7.4-mysql php7.4-fpm php7.4-curl php7.4-gd \
-	php7.4-intl php7.4-mbstring php7.4-soap php7.4-xml \
-	php7.4-xmlrpc php7.4-zip wget vim \
+ 	php8.0 php8.0-mysql php8.0-fpm php8.0-curl php8.0-gd \
+	php8.0-intl php8.0-mbstring php8.0-soap php8.0-xml \
+	php8.0-xmlrpc php8.0-zip wget vim \
  	&& rm -rf /var/lib/apt/lists/*
 
-RUN cp /etc/php/7.4/fpm/pool.d/www.conf /tmp/www.conf
-COPY conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
+RUN cp /etc/php/8.0/fpm/pool.d/www.conf /tmp/www.conf
+COPY conf/www.conf /etc/php/8.0/fpm/pool.d/www.conf
 
 COPY tools/wp-entrypoint.sh /opt/wp-entrypoint.sh
 
@@ -17,5 +23,6 @@ EXPOSE 9000
 
 ENTRYPOINT [ "/opt/wp-entrypoint.sh" ]
 
-CMD ["/usr/sbin/php-fpm7.4", "-F"]
+# CMD ["/usr/sbin/php-fpm7.4", "-F"]
+CMD ["/usr/sbin/php-fpm8.0", "-F"]
 # CMD [ "/bin/bash" ]
