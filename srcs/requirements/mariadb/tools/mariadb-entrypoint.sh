@@ -24,7 +24,7 @@ else
 	echo " FLUSH PRIVILEGES;" | mysql -u root
 
 	#Import database in the mysql command line
-	mysql -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < /usr/local/bin/wordpress.sql
+	#mysql -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < /usr/local/bin/wordpress.sql
 
 fi
 
