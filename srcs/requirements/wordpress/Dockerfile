@@ -7,10 +7,12 @@ FROM debian:stable-20230411
 #  	&& rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get install -y \
- 	php8.0 php8.0-mysql php8.0-fpm php8.0-curl php8.0-gd \
-	php8.0-intl php8.0-mbstring php8.0-soap php8.0-xml \
-	php8.0-xmlrpc php8.0-zip wget vim \
- 	&& rm -rf /var/lib/apt/lists/*
+	php8.0-fpm php8.0-common php8.0-mysql \
+	php8.0-xml php8.0-xmlrpc php8.0-curl php8.0-gd \
+	php8.0-imagick php8.0-cli php8.0-dev php8.0-imap \
+	php8.0-mbstring php8.0-opcache php8.0-redis \
+	php8.0-soap php8.0-zip \
+	&& rm -rf /var/lib/apt/lists/*
 
 RUN cp /etc/php/8.0/fpm/pool.d/www.conf /tmp/www.conf
 COPY conf/www.conf /etc/php/8.0/fpm/pool.d/www.conf
