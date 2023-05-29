@@ -21,11 +21,11 @@
 
 FROM debian:stable-20230411
 
-# RUN apt-get update && apt-get install -y \
-#  	php7.4 php7.4-mysql php7.4-fpm php7.4-curl php7.4-gd \
-# 	php7.4-intl php7.4-mbstring php7.4-soap php7.4-xml \
-# 	php7.4-xmlrpc php7.4-zip wget vim \
-#  	&& rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+ 	php7.4 php7.4-mysql php7.4-fpm php7.4-curl php7.4-gd \
+	php7.4-intl php7.4-mbstring php7.4-soap php7.4-xml \
+	php7.4-xmlrpc php7.4-zip wget vim \
+ 	&& rm -rf /var/lib/apt/lists/*
 
 # RUN apt update && apt install -y wget && wget -qO - https://packages.sury.org/php/apt.gpg | apt-key add -
 # RUN echo "deb https://packages.sury.org/php/ bullseye main" | tee /etc/apt/sources.list.d/sury-php.list
