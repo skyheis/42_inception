@@ -34,8 +34,9 @@ RUN apk update && apk upgrade && apk add --no-cache \
 # 	php8.0-soap php8.0-zip \
 # 	&& rm -rf /var/lib/apt/lists/*
 
-RUN cp /etc/php/8.0/fpm/pool.d/www.conf /tmp/www.conf
-COPY conf/www.conf /etc/php/8.0/fpm/pool.d/www.conf
+# RUN cp /etc/php/8.0/fpm/pool.d/www.conf /tmp/www.conf
+# COPY conf/www.conf /etc/php/8.0/fpm/pool.d/www.conf
+COPY conf/www.conf /etc/php8/php-fpm.d/www.conf
 
 COPY tools/wp-entrypoint.sh /opt/wp-entrypoint.sh
 
