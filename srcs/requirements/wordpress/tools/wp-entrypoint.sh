@@ -2,7 +2,7 @@
 
 # service php7.4-fpm start
 
-wget -O /tmp/wordpress.tar.gz https://wordpress.org/latest.tar.gz
+wget -O /tmp/wordpress.tar.gz https://wordpress.org/wordpress-6.1.3.tar.gz
 
 tar -xzf /tmp/wordpress.tar.gz -C /tmp
 
