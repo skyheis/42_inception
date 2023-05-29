@@ -7,7 +7,7 @@ services:
     ports:
       - 443:443
     volumes:
-      - wordpress:/var/www/html
+      - wp:/var/www/html
     depends_on:
       - wordpress
   mariadb:
@@ -19,13 +19,20 @@ services:
     container_name: ggiannit_wordpress
     build: requirements/wordpress
     volumes:
-      - wordpress:/var/www/html
+      - wp:/var/www/html
 
 networks:
   default:
     name: ggiannit_inception
 
 volumes:
+  wp:
+    driver: local
+    driver_opts:
+      device: /root/wordpress
+      o: bind
+      type: none
+
 #   db:
 #     name: mariadb
 #     driver: local
@@ -33,10 +40,3 @@ volumes:
 #       device: -----
 #       o: bind
 #       type: none
-  wp:
-    name: wordpress
-    driver: local
-    driver_opts:
-      device: /root/wordpress
-      o: bind
-      type: none
