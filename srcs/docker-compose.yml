@@ -16,8 +16,8 @@ services:
   wordpress:
     container_name: ggiannit_wordpress
     build: requirements/wordpress
-  #   # volumes:
-  #   #   - ./wp-content:/var/www/html/wp-content
+    # volumes:
+    #   - ./wp-content:/var/www/html/wp-content
 
 networks:
   default:
