@@ -6,8 +6,9 @@ FROM debian:stable-20230411
 # 	php7.4-xmlrpc php7.4-zip wget vim \
 #  	&& rm -rf /var/lib/apt/lists/*
 
-RUN apt update && apt install -y software-properties-common
-RUN add-apt-repository ppa:ondrej/php -y && apt-get update && apt-get install -y \
+RUN apt update && apt install -y wget && wget -qO - https://packages.sury.org/php/apt.gpg | sudo apt-key add -
+RUN echo "deb https://packages.sury.org/php/ bullseye main" | sudo tee /etc/apt/sources.list.d/sury-php.list
+RUN apt-get update && apt-get install -y \
 	php8.0-fpm php8.0-common php8.0-mysql \
 	php8.0-xml php8.0-xmlrpc php8.0-curl php8.0-gd \
 	php8.0-imagick php8.0-cli php8.0-dev php8.0-imap \
