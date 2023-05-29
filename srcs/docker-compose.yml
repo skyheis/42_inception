@@ -8,14 +8,14 @@ services:
       - 443:443
     # depends_on:
     #   - wordpress
-  # mariadb:
-  #   container_name: ggiannit_mariadb
-  #   build: requirements/mariadb
+  mariadb:
+    container_name: ggiannit_mariadb
+    build: requirements/mariadb
   #   volumes:
   #     - db:/var/lib/mysql
-  # wordpress:
-  #   container_name: ggiannit_wordpress
-  #   build: requirements/wordpress
+  wordpress:
+    container_name: ggiannit_wordpress
+    build: requirements/wordpress
   #   # volumes:
   #   #   - ./wp-content:/var/www/html/wp-content
 
@@ -28,6 +28,13 @@ networks:
 #     name: mariadb
 #     driver: local
 #     driver_opts:
-#       device: ../db_use
+#       device: -----
+#       o: bind
+#       type: none
+#   wp:
+#     name: wordpress-content
+#     driver: local
+#     driver_opts:
+#       device: -----
 #       o: bind
 #       type: none
