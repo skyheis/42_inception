@@ -28,8 +28,8 @@ COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 EXPOSE 3306
 
-#CMD [ "/bin/bash" ]
+CMD [ "/bin/bash" ]
 
-ENTRYPOINT [ "/usr/bin/mariadb-entrypoint.sh" ]
+# ENTRYPOINT [ "/usr/bin/mariadb-entrypoint.sh" ]
 
-CMD ["mysqld"]
+# CMD ["mysqld"]
