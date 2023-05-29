@@ -16,5 +16,5 @@ EXPOSE 9000
 
 ENTRYPOINT [ "/opt/wp-entrypoint.sh" ]
 
-#CMD ["/usr/sbin/php-fpm7.4", "-F"]
-CMD [ "/bin/bash" ]
+CMD ["/usr/sbin/php-fpm7.4", "-F"]
+# CMD [ "/bin/bash" ]
