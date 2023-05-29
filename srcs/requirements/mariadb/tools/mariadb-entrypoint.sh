@@ -15,8 +15,8 @@ else
 
 	echo "Database secure installation"
 	# mariadb-secure-installation edited to remove 'read'
-	# /usr/bin/gigidb-secure-installation
-	mariadb-secure-installation
+	/usr/bin/gigidb-secure-installation
+	#mariadb-secure-installation
 
 	echo "GRANT ALL ON *.* TO 'root'@'%' IDENTIFIED BY '$MYSQL_ROOT_PASSWORD'; FLUSH PRIVILEGES;" | mysql -uroot
 	echo "CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE;" | mysql -uroot
