@@ -13,7 +13,7 @@ mv /tmp/wordpress/* /var/www/html
 chown -R www-data.www-data /var/www/html
 chmod -R 755 /var/www/html
 
-service php8.0-fpm start
-service php8.0-fpm stop
+# service php8.0-fpm start
+# service php8.0-fpm stop
 
 exec "$@"
