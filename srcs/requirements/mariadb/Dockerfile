@@ -20,7 +20,7 @@ RUN mkdir -p /var/run/mysqld \
 	&& chmod 777 /var/run/mysqld
 
 COPY tools/mariadb-entrypoint.sh /usr/bin/mariadb-entrypoint.sh
-COPY tools/mariadb-entrypoint.sh /usr/bin/gigidb-secure-installation
+COPY tools/gigidb-secure-installation /usr/bin/gigidb-secure-installation
 RUN chmod +x /usr/bin/gigidb-secure-installation
 RUN chmod +x /usr/bin/mariadb-entrypoint.sh
 
