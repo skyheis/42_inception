@@ -16,4 +16,7 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
+RUN rm /etc/nginx/sites-enabled/default && \
+	rm /etc/nginx/sites-available/default
+
 CMD ["nginx", "-g", "daemon off;"]
