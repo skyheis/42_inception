@@ -6,28 +6,28 @@ services:
     build: requirements/nginx
     ports:
       - 443:443
-    depends_on:
-      - wordpress
-  mariadb:
-    container_name: ggiannit_mariadb
-    build: requirements/mariadb
-    volumes:
-      - ./db:/var/lib/mysql
-  wordpress:
-    container_name: ggiannit_wordpress
-    build: requirements/wordpress
-    # volumes:
-    #   - ./wp-content:/var/www/html/wp-content
+    # depends_on:
+    #   - wordpress
+  # mariadb:
+  #   container_name: ggiannit_mariadb
+  #   build: requirements/mariadb
+  #   volumes:
+  #     - db:/var/lib/mysql
+  # wordpress:
+  #   container_name: ggiannit_wordpress
+  #   build: requirements/wordpress
+  #   # volumes:
+  #   #   - ./wp-content:/var/www/html/wp-content
 
 networks:
   default:
     name: ggiannit_inception
 
-volumes:
-  db:
-    name: mariadb
-    driver: local
-    driver_opts:
-      device: /Users/sahafid/Desktop/Inception/srcs/mariadb
-      o: bind
-      type: none
+# volumes:
+#   db:
+#     name: mariadb
+#     driver: local
+#     driver_opts:
+#       device: ../db_use
+#       o: bind
+#       type: none
