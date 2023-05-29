@@ -7,7 +7,7 @@ MYSQL_USER=ggiannit
 MYSQL_PASSWORD=culocane
 MYSQL_ROOT_PASSWORD=totiroti
 
-# service mariadb start
+service mariadb start
 
 if [ -d "/var/lib/mysql/$MYSQL_DATABASE" ]; then 
 	echo "Database already exists"
