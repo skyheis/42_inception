@@ -15,8 +15,8 @@ services:
     container_name: ggiannit_mariadb
     build: requirements/mariadb
     image: mariadb
-    # volumes:
-    #   - db:/var/lib/mysql
+    volumes:
+      - db:/var/lib/mysql
   wordpress:
     container_name: ggiannit_wordpress
     build: requirements/wordpress
@@ -35,11 +35,9 @@ volumes:
       device: /root/wordpress
       o: bind
       type: none
-
-#   db:
-#     name: mariadb
-#     driver: local
-#     driver_opts:
-#       device: -----
-#       o: bind
-#       type: none
+  db:
+    driver: local
+    driver_opts:
+      device: /root/database
+      o: bind
+      type: none

@@ -111,15 +111,12 @@ find_in_basedir()
 
 cannot_find_file()
 {
-  echo
   echo "FATAL ERROR: Could not find $1"
 
   shift
   if test $# -ne 0
   then
-    echo
     echo "The following directories were searched:"
-    echo
     for dir in "$@"
     do
       echo "    $dir"
@@ -283,7 +280,6 @@ get_root_password() {
       emptypass=0
     fi
     echo "OK, successfully used password, moving on..."
-    echo
 }
 
 set_root_password() {
@@ -319,11 +315,9 @@ set_root_password() {
 	if [ $? -eq 1 ]; then
 		clean_and_exit
 	fi
-	echo
 	rootpass=$password1
 	make_config
     else
-	echo "Password update failed!"
 	clean_and_exit
     fi
 
@@ -383,9 +377,7 @@ reload_privilege_tables() {
 }
 
 interrupt() {
-    echo
     echo "Aborting!"
-    echo
     cleanup
     stty echo
     exit 1
@@ -452,7 +444,6 @@ else
    if [ $? -eq 1 ]; then
      clean_and_exit
    fi
-   echo
   else
    echo "Failed!"
    clean_and_exit
@@ -482,19 +473,18 @@ else
 	status=$?
     done
 fi
-echo
 
 
 #
 # Remove anonymous users
 #
 
-echo "By default, a MariaDB installation has an anonymous user, allowing anyone"
-echo "to log into MariaDB without having to have a user account created for"
-echo "them.  This is intended only for testing, and to make the installation"
-echo "go a bit smoother.  You should remove them before moving into a"
-echo "production environment."
-echo
+# echo "By default, a MariaDB installation has an anonymous user, allowing anyone"
+# echo "to log into MariaDB without having to have a user account created for"
+# echo "them.  This is intended only for testing, and to make the installation"
+# echo "go a bit smoother.  You should remove them before moving into a"
+# echo "production environment."
+# echo
 
 while true ; do
     # echo $echo_n "Remove anonymous users? [Y/n] $echo_c"
@@ -507,16 +497,15 @@ if [ "$reply" = "n" ]; then
 else
     remove_anonymous_users
 fi
-echo
 
 
 #
 # Disallow remote root login
 #
 
-echo "Normally, root should only be allowed to connect from 'localhost'.  This"
-echo "ensures that someone cannot guess at the root password from the network."
-echo
+# echo "Normally, root should only be allowed to connect from 'localhost'.  This"
+# echo "ensures that someone cannot guess at the root password from the network."
+# echo
 while true ; do
     # echo $echo_n "Disallow root login remotely? [Y/n] $echo_c"
     # read reply
@@ -528,17 +517,17 @@ if [ "$reply" = "n" ]; then
 else
     remove_remote_root
 fi
-echo
+# echo
 
 
 #
 # Remove test database
-#
+# #
 
-echo "By default, MariaDB comes with a database named 'test' that anyone can"
-echo "access.  This is also intended only for testing, and should be removed"
-echo "before moving into a production environment."
-echo
+# echo "By default, MariaDB comes with a database named 'test' that anyone can"
+# echo "access.  This is also intended only for testing, and should be removed"
+# echo "before moving into a production environment."
+# echo
 
 while true ; do
     # echo $echo_n "Remove test database and access to it? [Y/n] $echo_c"
@@ -552,7 +541,6 @@ if [ "$reply" = "n" ]; then
 else
     remove_test_database
 fi
-echo
 
 
 #
@@ -561,7 +549,6 @@ echo
 
 echo "Reloading the privilege tables will ensure that all changes made so far"
 echo "will take effect immediately."
-echo
 
 while true ; do
     # echo $echo_n "Reload privilege tables now? [Y/n] $echo_c"
@@ -575,12 +562,9 @@ if [ "$reply" = "n" ]; then
 else
     reload_privilege_tables
 fi
-echo
 
 cleanup
 
-echo
 echo "All done!  If you've completed all of the above steps, your MariaDB"
 echo "installation should now be secure."
-echo
 echo "Thanks for using MariaDB!"
