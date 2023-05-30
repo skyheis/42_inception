@@ -1,6 +1,6 @@
 NAME = inception
 
-LOCATION = ./srcs/docker-compose.yml
+LOCATION = -f ./srcs/docker-compose.yml
 
 all: $(NAME)
 
