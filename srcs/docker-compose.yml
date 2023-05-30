@@ -17,6 +17,8 @@ services:
     image: mariadb
     volumes:
       - db:/var/lib/mysql
+    env_file:
+      - .env
   wordpress:
     container_name: ggiannit_wordpress
     build: requirements/wordpress
@@ -25,6 +27,8 @@ services:
       - wp:/var/www/html
     depends_on:
       - mariadb
+    env_file:
+      - .env
 
 networks:
   default:
