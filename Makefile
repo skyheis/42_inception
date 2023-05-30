@@ -1,27 +1,26 @@
 NAME = inception
 
+LOCATION = ./srcs/docker-compose.yml
+
 all: $(NAME)
 
 $(NAME): build
-	docker-compose up
+	docker-compose $(LOCATION) up
 
 deamon: build
-	docker-compose up -d
+	docker-compose $(LOCATION) up -d
 
-build: cddir
-	docker-compose build
+build:
+	docker-compose $(LOCATION) build
 
-clean: cddir
-	docker-compose down
+clean:
+	docker-compose $(LOCATION) down
 
 fclean: clean
-	docker-compose down --rmi all
+	docker-compose $(LOCATION) down --rmi all
 	rm -r ~/database/*
 	rm -r ~/wordpress/*
 
 re: fclean all
 
 redeamon: fclean deamon
-
-cddir:
-	cd srcs
