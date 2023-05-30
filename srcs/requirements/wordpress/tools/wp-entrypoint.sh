@@ -10,7 +10,7 @@ if [ -d "/var/www/html/wp-admin" ]; then
 	echo "Wordpress already installed"
 else
 	echo "Wordpress installation"
-	wget -O /tmp/wordpress.tar.gz https://wordpress.org/wordpress-6.1.3.tar.gz
+	wget -q -O /tmp/wordpress.tar.gz https://wordpress.org/wordpress-6.1.3.tar.gz
 
 	tar -xzf /tmp/wordpress.tar.gz -C /tmp
 
@@ -31,7 +31,7 @@ else
 
 	echo "Wordpress configuration"
 	
-	wget -O /usr/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+	wget -q -O /usr/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 	
 	chmod +x /usr/bin/wp
 
