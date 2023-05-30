@@ -33,6 +33,8 @@ rm /etc/nginx/sites-available/default
 
 
 
+wp config create --dbname=testing --dbuser=wp --dbpass=securepswd --locale=ro_RO
+
 tQx2vnG9UPHoZAsExG
 
 male_tasso

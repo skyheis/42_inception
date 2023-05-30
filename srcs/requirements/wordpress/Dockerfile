@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
  	&& rm -rf /var/lib/apt/lists/*
 
 COPY conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
-# COPY conf/www.conf /etc/php8/php-fpm.d/www.conf
+COPY conf/uploads /tmp/uploads
 
 COPY tools/wp-entrypoint.sh /opt/wp-entrypoint.sh
 
