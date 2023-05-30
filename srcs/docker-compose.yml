@@ -15,8 +15,8 @@ services:
     container_name: ggiannit_mariadb
     build: requirements/mariadb
     image: mariadb
-  #   volumes:
-  #     - db:/var/lib/mysql
+    # volumes:
+    #   - db:/var/lib/mysql
   wordpress:
     container_name: ggiannit_wordpress
     build: requirements/wordpress

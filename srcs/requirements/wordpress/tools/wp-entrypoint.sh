@@ -2,6 +2,11 @@
 
 # service php7.4-fpm start
 
+if [ -d "/var/www/html/wp-admin" ]; then
+	echo "Wordpress already installed"
+else
+	echo "Wordpress installation"
+fi
 wget -O /tmp/wordpress.tar.gz https://wordpress.org/wordpress-6.1.3.tar.gz
 
 tar -xzf /tmp/wordpress.tar.gz -C /tmp
