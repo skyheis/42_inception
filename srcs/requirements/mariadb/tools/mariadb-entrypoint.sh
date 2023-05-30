@@ -7,6 +7,8 @@ set -e
 # MYSQL_PASSWORD=culocane
 # MYSQL_ROOT_PASSWORD=totiroti
 
+echo "MYSQL_DATABASE $MYSQL_DATABASE MYSQL_USER $MYSQL_USER MYSQL_PASSWORD $MYSQL_PASSWORD"
+
 service mariadb start
 
 if [ -d "/var/lib/mysql/$MYSQL_DATABASE" ]; then 

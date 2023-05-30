@@ -5,6 +5,7 @@
 # MYSQL_PASSWORD=culocane
 
 # service php7.4-fpm start
+echo "MYSQL_DATABASE $MYSQL_DATABASE MYSQL_USER $MYSQL_USER MYSQL_PASSWORD $MYSQL_PASSWORD"
 
 if [ -d "/var/www/html/wp-admin" ]; then
 	echo "Wordpress already installed"
@@ -34,6 +35,7 @@ else
 	wget -q -O /usr/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 	
 	chmod +x /usr/bin/wp
+
 
 	wp --allow-root --path=/var/www/html core config --dbhost=ggiannit_mariadb --dbname=$MYSQL_DATABASE --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD
 	# wp --allow-root --path=/var/www/html core config --dbhost=ggiannit_mariadb --dbname=wordpress--dbuser=ggiannit --dbpass=culocane
