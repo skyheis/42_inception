@@ -4,20 +4,23 @@ services:
   nginx:
     container_name: ggiannit_nginx
     build: requirements/nginx
+    image: nginx
     ports:
       - 443:443
-    # volumes:
-    #   - wp:/var/www/html
+    volumes:
+      - wp:/var/www/html
     depends_on:
       - wordpress
   mariadb:
     container_name: ggiannit_mariadb
     build: requirements/mariadb
+    image: mariadb
   #   volumes:
   #     - db:/var/lib/mysql
   wordpress:
     container_name: ggiannit_wordpress
     build: requirements/wordpress
+    image: wordpress
     volumes:
       - wp:/var/www/html
 
