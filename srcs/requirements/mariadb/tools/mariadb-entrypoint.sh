@@ -2,12 +2,7 @@
 
 set -e
 
-# MYSQL_DATABASE=wordpress
-# MYSQL_USER=ggiannit
-# MYSQL_PASSWORD=culocane
-# MYSQL_ROOT_PASSWORD=totiroti
-
-echo "MYSQL_DATABASE $MYSQL_DATABASE MYSQL_USER $MYSQL_USER MYSQL_PASSWORD $MYSQL_PASSWORD"
+# echo "MYSQL_DATABASE $MYSQL_DATABASE MYSQL_USER $MYSQL_USER MYSQL_PASSWORD $MYSQL_PASSWORD"
 
 service mariadb start
 
@@ -33,17 +28,3 @@ fi
 service mariadb stop
 
 exec "$@"
-
-# echo "CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE ;" > confwp.sql
-# echo "CREATE USER IF NOT EXISTS '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD' ;" >> confwp.sql
-# echo "GRANT ALL PRIVILEGES ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'%' ;" >> confwp.sql
-# # echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '$MYSQL_ROOT_PASSWORD' ;" >> confwp.sql
-# echo "FLUSH PRIVILEGES;" >> confwp.sql
-
-# mysql < confwp.sql
-
-# if [ "$MYSQL_ROOT_PASSWORD" == "" ]; then
-# 	mysql < confwp.sql
-# else
-# 	mysql -uroot -p$MYSQL_ROOT_PASSWORD < confwp.sql
-# fi

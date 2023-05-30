@@ -1,11 +1,6 @@
 #!/bin/bash
 
-# MYSQL_DATABASE=wordpress
-# MYSQL_USER=ggiannit
-# MYSQL_PASSWORD=culocane
-
-# service php7.4-fpm start
-echo "MYSQL_DATABASE $MYSQL_DATABASE MYSQL_USER $MYSQL_USER MYSQL_PASSWORD $MYSQL_PASSWORD"
+# echo "MYSQL_DATABASE $MYSQL_DATABASE MYSQL_USER $MYSQL_USER MYSQL_PASSWORD $MYSQL_PASSWORD"
 
 if [ -d "/var/www/html/wp-admin" ]; then
 	echo "Wordpress already installed"
@@ -38,9 +33,9 @@ else
 
 
 	wp --allow-root --path=/var/www/html core config --dbhost=ggiannit_mariadb --dbname=$MYSQL_DATABASE --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD
-	# wp --allow-root --path=/var/www/html core config --dbhost=ggiannit_mariadb --dbname=wordpress--dbuser=ggiannit --dbpass=culocane
-	
-	# chmod 660 wp-config.php
+
+	echo "define('WP_HOME','https://ggiannit.42.fr');" >> /var/www/html/wp-config.php
+	echo "define('WP_SITEURL','https://ggiannit.42.fr');" >> /var/www/html/wp-config.php
 fi
 
 
