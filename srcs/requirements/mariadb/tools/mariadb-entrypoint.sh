@@ -2,10 +2,10 @@
 
 set -e
 
-MYSQL_DATABASE=wordpress
-MYSQL_USER=ggiannit
-MYSQL_PASSWORD=culocane
-MYSQL_ROOT_PASSWORD=totiroti
+# MYSQL_DATABASE=wordpress
+# MYSQL_USER=ggiannit
+# MYSQL_PASSWORD=culocane
+# MYSQL_ROOT_PASSWORD=totiroti
 
 service mariadb start
 

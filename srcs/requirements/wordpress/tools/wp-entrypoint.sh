@@ -1,8 +1,8 @@
 #!/bin/bash
 
-MYSQL_DATABASE=wordpress
-MYSQL_USER=ggiannit
-MYSQL_PASSWORD=culocane
+# MYSQL_DATABASE=wordpress
+# MYSQL_USER=ggiannit
+# MYSQL_PASSWORD=culocane
 
 # service php7.4-fpm start
 
