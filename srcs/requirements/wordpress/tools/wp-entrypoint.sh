@@ -34,8 +34,8 @@ else
 
 	wp --allow-root --path=/var/www/html core config --dbhost=ggiannit_mariadb --dbname=$MYSQL_DATABASE --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD
 
-	echo "define('WP_HOME','https://ggiannit.42.fr');" >> /var/www/html/wp-config.php
-	echo "define('WP_SITEURL','https://ggiannit.42.fr');" >> /var/www/html/wp-config.php
+	# echo "define('WP_HOME','https://ggiannit.42.fr');" >> /var/www/html/wp-config.php
+	# echo "define('WP_SITEURL','https://ggiannit.42.fr');" >> /var/www/html/wp-config.php
 fi
 
 
