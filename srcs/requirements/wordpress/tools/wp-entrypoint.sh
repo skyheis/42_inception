@@ -35,7 +35,8 @@ else
 	
 	chmod +x /usr/bin/wp
 
-	# wp --allow-root --path=/var/www/html core config --dbhost=ggiannit_mariadb --dbname=$MYSQL_DATABASE --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD
+	wp --allow-root --path=/var/www/html core config --dbhost=ggiannit_mariadb --dbname=$MYSQL_DATABASE --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD
+	# wp --allow-root --path=/var/www/html core config --dbhost=ggiannit_mariadb --dbname=wordpress--dbuser=ggiannit --dbpass=culocane
 	
 	# chmod 660 wp-config.php
 fi
