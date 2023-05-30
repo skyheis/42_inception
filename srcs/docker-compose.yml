@@ -23,6 +23,8 @@ services:
     image: wordpress
     volumes:
       - wp:/var/www/html
+    depends_on:
+      - mariadb
 
 networks:
   default:
