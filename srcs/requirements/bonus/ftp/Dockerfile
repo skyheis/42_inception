@@ -6,11 +6,12 @@ RUN apt-get update && apt-get install -y \
 
 EXPOSE 21
 
-RUN useradd -m -U $FTP_USER --password $FTP_PASSWORD && \
-	chown -R $FTP_USER:$FTP_USER /home/$FTP_USER
 
 COPY ./config/vsftpd.conf /etc/vsftpd/vsftpd.conf
+COPY ./tools/ftp-entrypoint.sh /usr/bin/ftp-entrypoint.sh
 
-RUN echo "$FTP_USER" >> "/etc/vsftpd.userlist"
+RUN chmod +x /usr/bin/ftp-entrypoint.sh
+
+ENTRYPOINT [ "/usr/bin/ftp-entrypoint.sh" ]
 
 CMD ["/usr/sbin/vsftpd", "/etc/vsftpd/vsftpd.conf"]
