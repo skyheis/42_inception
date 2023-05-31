@@ -12,7 +12,7 @@ services:
       - 443:443
     volumes:
       - wp:/var/www/html
-      # - certs:/etc/ssl
+      - certs:/etc/ssl
     depends_on:
       - wordpress
       - static
@@ -79,18 +79,18 @@ volumes:
   wp:
     driver: local
     driver_opts:
-      device: /root/wordpress
+      device: ${WP_DIR}
       o: bind
       type: none
   db:
     driver: local
     driver_opts:
-      device: /root/database
+      device: ${DB_DIR}
       o: bind
       type: none
-  # certs:
-  #   driver: local
-  #   driver_opts:
-  #     device: /root/certs
-  #     o: bind
-  #     type: none
+  certs:
+    driver: local
+    driver_opts:
+      device: ${CERT_DIR}
+      o: bind
+      type: none
