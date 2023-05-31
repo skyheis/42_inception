@@ -21,6 +21,9 @@ chmod -R 755 /var/www/html
 
 service php7.4-fpm start
 
+wget -q -O /usr/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+chmod +x /usr/bin/wp
+
 if [ -f "/var/www/html/wp-config.php" ]; then
 	echo "Wordpress already configured"
 else
@@ -29,9 +32,6 @@ else
 
 	echo "Wordpress configuration"
 	
-	wget -q -O /usr/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-	
-	chmod +x /usr/bin/wp
 
 	wp --allow-root --path=/var/www/html core config --dbhost=ggiannit_mariadb --dbname=$MYSQL_DATABASE --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD
 
@@ -45,8 +45,9 @@ else
 	# echo "define('WP_SITEURL','https://ggiannit.42.fr');" >> /var/www/html/wp-config.php
 fi
 
-	wp plugin update --all --allow-root --path=/var/www/html
-	wp redis enable --allow-root --path=/var/www/html
+wp plugin update --all --allow-root --path=/var/www/html
+wp redis enable --allow-root --path=/var/www/html
+
 service php7.4-fpm stop
 
 exec "$@"
