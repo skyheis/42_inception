@@ -11,6 +11,7 @@ services:
       - wp:/var/www/html
     depends_on:
       - wordpress
+
   mariadb:
     container_name: ggiannit_mariadb
     build: requirements/mariadb
@@ -19,6 +20,7 @@ services:
       - db:/var/lib/mysql
     env_file:
       - .env
+
   wordpress:
     container_name: ggiannit_wordpress
     build: requirements/wordpress
@@ -29,6 +31,14 @@ services:
       - mariadb
     env_file:
       - .env
+
+  static:
+    container_name: ggiannit_static
+    build: requirements/bonus/static
+    image: static
+    depends_on:
+      - nginx
+
 
 networks:
   default:

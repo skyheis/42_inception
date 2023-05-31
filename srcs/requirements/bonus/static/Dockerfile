@@ -1,0 +1,21 @@
+FROM debian:stable-20230411
+
+RUN apt-get update && apt-get install -y \
+	nginx openssl\
+	&& rm -rf /var/lib/apt/lists/*
+
+EXPOSE 80
+
+RUN rm /etc/nginx/conf.d/default.conf
+
+COPY ./conf/portfolio.conf /etc/nginx/conf.d
+
+COPY portfolio /tmp/portfolio
+
+RUN mv /tmp/portfolio/* /usr/share/nginx/html
+
+RUN ln -sf /dev/stdout /var/log/nginx/access.log
+RUN ln -sf /dev/stderr /var/log/nginx/error.log
+
+
+CMD ["nginx", "-g", "daemon off;"]
