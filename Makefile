@@ -24,3 +24,8 @@ fclean: clean
 re: fclean all
 
 redeamon: fclean deamon
+
+browsh:
+	docker container exec -it ggiannit_browsh links2 https://ggiannit_nginx/
+
+.PHONY: all build clean fclean re browsh deamon
