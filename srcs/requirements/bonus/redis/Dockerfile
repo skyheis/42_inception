@@ -1,7 +1,7 @@
 FROM debian:stable-20230411
 
 RUN		apt-get update
-RUN		apt-get install -y redis \
+RUN		apt-get install -y redis php-redis \
 		&& rm -rf /var/lib/apt/lists/*
 
 COPY ./tools/redis-entrypoint.sh /tmp/redis-entrypoint.sh
