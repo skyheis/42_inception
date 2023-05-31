@@ -1,7 +1,5 @@
 FROM debian:stable-20230411
 
-ENV CERT_DIR $CERT_DIR
-
 RUN apt-get update && apt-get install -y \
 	nginx openssl\
 	&& rm -rf /var/lib/apt/lists/*
