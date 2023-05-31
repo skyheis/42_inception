@@ -38,6 +38,8 @@ keygen:
 		-keyout /root/certs/private/ggiannit.42.fr.key \
 		-out /root/certs/certs/ggiannit.42.fr.crt; \
 	fi
+	@cp /root/certs/certs/ggiannit.42.fr.crt /var/tmp
+	@chmod 444 /var/tmp/ggiannit.42.fr.crt
 
 delkey:
 	@echo "Deleting the cert and the key in /root/certs"
