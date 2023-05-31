@@ -6,15 +6,11 @@ RUN apt-get update && apt-get install -y \
 	php7.4-xmlrpc php7.4-zip wget mariadb-client \
  	&& rm -rf /var/lib/apt/lists/*
 
-COPY conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
-COPY conf/uploads /tmp/uploads
-
-COPY tools/wp-entrypoint.sh /opt/wp-entrypoint.sh
-
-RUN chmod +x /opt/wp-entrypoint.sh
-
 EXPOSE 9000
 
-ENTRYPOINT [ "/opt/wp-entrypoint.sh" ]
+COPY conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
+
+RUN mkdir -p /var/www/html && \
+	wget "http://www.adminer.org/latest.php" -O /var/www/html/adminer.php
 
 CMD ["/usr/sbin/php-fpm7.4", "-F"]

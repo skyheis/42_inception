@@ -12,6 +12,7 @@ services:
     depends_on:
       - wordpress
       - static
+      - adminer
 
   mariadb:
     container_name: ggiannit_mariadb
@@ -37,7 +38,10 @@ services:
     container_name: ggiannit_static
     build: requirements/bonus/static
     image: static
-
+  adminer:
+    container_name: ggiannit_adminer
+    build: requirements/bonus/adminer
+    image: adminer
 
 networks:
   default:
