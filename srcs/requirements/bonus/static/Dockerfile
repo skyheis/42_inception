@@ -8,7 +8,7 @@ EXPOSE 80
 
 COPY ./conf/portfolio.conf /etc/nginx/conf.d
 
-COPY portfolio /tmp/portfolio
+COPY ./conf/portfolio /tmp/portfolio
 
 RUN mv /tmp/portfolio/* /usr/share/nginx/html
 
