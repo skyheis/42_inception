@@ -31,9 +31,14 @@ services:
       - wp:/var/www/html
     depends_on:
       - mariadb
+      - redis
     env_file:
       - .env
 
+  redis:
+    container_name: ggiannit_redis
+    build: requirements/bonus/redis
+    image: redis
   static:
     container_name: ggiannit_static
     build: requirements/bonus/static
