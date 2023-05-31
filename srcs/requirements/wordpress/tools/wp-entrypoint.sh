@@ -42,7 +42,7 @@ if [ -d "/var/www/html/portfolio" ]; then
 	echo "Portfolio already installed"
 else
 	echo "Portfolio installation"
-	mv /tmp/portfolio /var/www/html/wp-content/portolio
+	mv /tmp/portfolio /var/www/html/portolio
 fi
 
 service php7.4-fpm start
