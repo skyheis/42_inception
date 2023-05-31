@@ -48,7 +48,7 @@ services:
     volumes:
       - wp:/var/www/html
     ports:
-      - 21:21
+      - 2142:21
     env_file:
       - .env
   
