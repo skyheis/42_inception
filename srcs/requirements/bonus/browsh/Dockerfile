@@ -19,17 +19,15 @@ RUN apt update && apt install -y \
 
 # Helper scripts
 WORKDIR /build
-ADD .git .git
-ADD .github .github
-ADD scripts scripts
-ADD ctl.sh .
+ADD tools/scripts scripts
+ADD tools/ctl.sh .
 
 # Install Golang and Browsh
 ENV GOROOT=/go
 ENV GOPATH=/go-home
 ENV PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 ENV BASE=$GOPATH/src/browsh/interfacer
-ADD interfacer $BASE
+ADD tools/interfacer $BASE
 WORKDIR $BASE
 RUN /build/ctl.sh install_golang $BASE
 RUN /build/ctl.sh build_browsh_binary $BASE
