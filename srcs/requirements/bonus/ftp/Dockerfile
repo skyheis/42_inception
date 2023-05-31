@@ -6,8 +6,7 @@ RUN apt-get update && apt-get install -y \
 
 EXPOSE 21
 
-RUN FTPPASSWD=$(openssl passwd -1 $FTP_PASSWORD)
-RUN useradd -m -U $FTP_USER --password $FTPPASSWD && \
+RUN useradd -m -U $FTP_USER --password $FTP_PASSWORD && \
 	chown -R $FTP_USER:$FTP_USER /home/$FTP_USER
 
 COPY ./config/vsftpd.conf /etc/vsftpd/vsftpd.conf
