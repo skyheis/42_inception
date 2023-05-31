@@ -39,6 +39,12 @@ services:
     container_name: ggiannit_redis
     build: requirements/bonus/redis
     image: redis
+  ftp:
+    container_name: ggiannit_ftp
+    build: requirements/bonus/ftp
+    image: ftp
+    volumes:
+      - wp:/var/www/html
   static:
     container_name: ggiannit_static
     build: requirements/bonus/static
