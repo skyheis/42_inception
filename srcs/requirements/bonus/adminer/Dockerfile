@@ -13,4 +13,6 @@ COPY conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
 RUN mkdir -p /var/www/html && \
 	wget "http://www.adminer.org/latest.php" -O /var/www/html/adminer.php
 
+RUN service php7.4-fpm start && service php7.4-fpm stop
+
 CMD ["/usr/sbin/php-fpm7.4", "-F"]
