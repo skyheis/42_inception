@@ -36,7 +36,7 @@ keygen:
 		openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 		-subj "/C=IT/ST=Italy/L=Florence/O=42/OU=42Firenze/CN=ggiannit.42.fr" \
 		-keyout /root/certs/private/ggiannit.42.fr.key \
-		-out /root/certs/certs/ggiannit.42.fr.crt
+		-out /root/certs/certs/ggiannit.42.fr.crt; \
 	fi
 
 delkey:
