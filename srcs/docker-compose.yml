@@ -49,7 +49,8 @@ services:
     build: requirements/bonus/ftp
     image: ftp
     ports:
-      - 1000:21
+      - "21:21"
+      - "21100-21110:21100-21110"
     volumes:
       - wp:/var/www/html
     env_file:
