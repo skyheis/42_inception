@@ -6,11 +6,11 @@ RUN apt-get update && apt-get install -y \
 
 EXPOSE 21
 
-COPY ./config/vsftpd.conf /etc/vsftpd/vsftpd.conf
+COPY ./config/vsftpd.conf /etc/vsftpd.conf
 COPY ./tools/ftp-entrypoint.sh /usr/bin/ftp-entrypoint.sh
 
 RUN chmod +x /usr/bin/ftp-entrypoint.sh
 
 ENTRYPOINT [ "/usr/bin/ftp-entrypoint.sh" ]
 
-CMD ["/usr/sbin/vsftpd", "/etc/vsftpd/vsftpd.conf"]
+CMD ["/usr/sbin/vsftpd", "/etc/vsftpd.conf"]
