@@ -1,15 +1,14 @@
 NAME = inception
 
 LOCATION = -f ./srcs/docker-compose.yml
-VARS = --env-file ./srcs/.env
 
 all: keygen $(NAME)
 
 $(NAME): build
-	$docker-compose $(LOCATION) $(VARS) up
+	$docker-compose $(LOCATION) up
 
 deamon: build
-	docker-compose $(LOCATION) $(VARS) up -d
+	docker-compose $(LOCATION) up -d
 
 build:
 	docker-compose $(LOCATION) build

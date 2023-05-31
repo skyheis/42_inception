@@ -79,18 +79,18 @@ volumes:
   wp:
     driver: local
     driver_opts:
-      device: ${WP_DIR}
+      device: /root/wordpress
       o: bind
       type: none
   db:
     driver: local
     driver_opts:
-      device: ${DB_DIR}
+      device: /root/database
       o: bind
       type: none
   certs:
     driver: local
     driver_opts:
-      device: ${CERT_DIR}
+      device: /root/certs
       o: bind
       type: none
