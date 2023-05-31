@@ -5,7 +5,7 @@ LOCATION = -f ./srcs/docker-compose.yml
 all: keygen $(NAME)
 
 $(NAME): build
-	$docker-compose $(LOCATION) up
+	docker-compose $(LOCATION) up
 
 deamon: build
 	docker-compose $(LOCATION) up -d
