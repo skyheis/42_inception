@@ -1,6 +1,6 @@
 FROM debian:stable-20230411 as build
 
-RUN install_packages \
+RUN apt update && apt install -y \
       curl \
       ca-certificates \
       git \
@@ -14,7 +14,8 @@ RUN install_packages \
       pkg-config \
       libprotobuf-dev \
       make \
-      bzip2
+      bzip2 \
+	  && rm -rf /var/lib/apt/lists/*
 
 # Helper scripts
 WORKDIR /build
@@ -43,7 +44,7 @@ WORKDIR $HOME
 
 COPY --from=build /go-home/src/browsh/interfacer/browsh /app/bin/browsh
 
-RUN install_packages \
+RUN apt update && apt install -y \
       xvfb \
       libgtk-3-0 \
       curl \
@@ -52,7 +53,8 @@ RUN install_packages \
       procps \
       libasound2 \
       libxtst6 \
-      firefox-esr
+      firefox-esr \
+	  && rm -rf /var/lib/apt/lists/*
 
 # Block ads, etc. This includes porn just because this image is also used on the
 # public SSH demo: `ssh brow.sh`.
