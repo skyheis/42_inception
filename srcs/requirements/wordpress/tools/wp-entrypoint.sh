@@ -19,6 +19,8 @@ fi
 chown -R www-data.www-data /var/www/html
 chmod -R 755 /var/www/html
 
+service php7.4-fpm start
+
 if [ -f "/var/www/html/wp-config.php" ]; then
 	echo "Wordpress already configured"
 else
@@ -38,14 +40,13 @@ else
 	wp config set WP_CACHE_KEY_SALT $DOMAIN_NAME --allow-root --path=/var/www/html
 	wp config set WP_REDIS_CLIENT phpredis --allow-root --path=/var/www/html
 	wp plugin install redis-cache --activate --allow-root --path=/var/www/html
-	wp plugin update --all --allow-root --path=/var/www/html
-	wp redis enable --allow-root --path=/var/www/html
 
 	# echo "define('WP_HOME','https://ggiannit.42.fr');" >> /var/www/html/wp-config.php
 	# echo "define('WP_SITEURL','https://ggiannit.42.fr');" >> /var/www/html/wp-config.php
 fi
 
-service php7.4-fpm start
+	wp plugin update --all --allow-root --path=/var/www/html
+	wp redis enable --allow-root --path=/var/www/html
 service php7.4-fpm stop
 
 exec "$@"
