@@ -2,7 +2,7 @@ NAME = inception
 
 LOCATION = -f ./srcs/docker-compose.yml
 
-all: $(NAME)
+all: keygen $(NAME)
 
 $(NAME): build
 	docker-compose $(LOCATION) up
@@ -27,5 +27,21 @@ redeamon: fclean deamon
 
 browsh:
 	docker container exec -it ggiannit_browsh links2 https://ggiannit_nginx/
+
+keygen:
+	@mkdir -p /root/certs/private
+	@mkdir -p /root/certs/certs
+	ifeq ("$(wildcard /root/certs/private/ggiannit.42.fr.key)","")
+		@echo "Generating the cert and the key in /root/certs"
+		openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+		-subj "/C=IT/ST=Italy/L=Florence/O=42/OU=42Firenze/CN=ggiannit.42.fr" \
+		-keyout /root/certs/private/ggiannit.42.fr.key \
+		-out /root/certs/certs/ggiannit.42.fr.crt
+	endif
+
+delkey:
+	@echo "Deleting the cert and the key in /root/certs"
+	@rm -r /root/certs/private
+	@rm -r /root/certs/certs
 
 .PHONY: all build clean fclean re browsh deamon
