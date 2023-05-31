@@ -38,13 +38,6 @@ else
 	# echo "define('WP_SITEURL','https://ggiannit.42.fr');" >> /var/www/html/wp-config.php
 fi
 
-if [ -f "/var/www/html/ggiannit.html" ]; then
-	echo "Portfolio already installed"
-else
-	echo "Portfolio installation"
-	mv /tmp/portfolio/* /var/www/html/
-fi
-
 service php7.4-fpm start
 service php7.4-fpm stop
 
