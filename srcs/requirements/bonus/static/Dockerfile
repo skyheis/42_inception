@@ -1,12 +1,10 @@
 FROM debian:stable-20230411
 
 RUN apt-get update && apt-get install -y \
-	nginx openssl\
+	nginx\
 	&& rm -rf /var/lib/apt/lists/*
 
 EXPOSE 80
-
-RUN rm /etc/nginx/conf.d/default.conf
 
 COPY ./conf/portfolio.conf /etc/nginx/conf.d
 
