@@ -33,7 +33,7 @@ services:
       - .env
 
   static:
-    container_name: ggiannit_static
+    container_name: ggiannitstatic
     build: requirements/bonus/static
     image: static
     depends_on:
