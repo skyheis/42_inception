@@ -13,7 +13,6 @@ services:
       - wordpress
       - static
       - adminer
-
   mariadb:
     container_name: ggiannit_mariadb
     build: requirements/mariadb
@@ -22,7 +21,6 @@ services:
       - db:/var/lib/mysql
     env_file:
       - .env
-
   wordpress:
     container_name: ggiannit_wordpress
     build: requirements/wordpress
@@ -34,34 +32,28 @@ services:
       - redis
     env_file:
       - .env
-
-  #bonus
   redis:
     container_name: ggiannit_redis
     build: requirements/bonus/redis
     image: redis
-  
   ftp:
     container_name: ggiannit_ftp
     build: requirements/bonus/ftp
     image: ftp
+    ports:
+      - 1000:21
     volumes:
       - wp:/var/www/html
-    ports:
-      - 2142:21
     env_file:
       - .env
-  
   static:
     container_name: ggiannit_static
     build: requirements/bonus/static
     image: static
-  
   adminer:
     container_name: ggiannit_adminer
     build: requirements/bonus/adminer
     image: adminer
-  
   browsh:
     container_name: ggiannit_browsh
     build: requirements/bonus/browsh
