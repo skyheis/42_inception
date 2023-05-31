@@ -21,6 +21,8 @@ chmod -R 755 /var/www/html
 
 service php7.4-fpm start
 
+sleep 2
+
 wget -q -O /usr/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 chmod +x /usr/bin/wp
 
