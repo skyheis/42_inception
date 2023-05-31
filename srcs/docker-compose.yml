@@ -43,9 +43,10 @@ services:
     build: requirements/bonus/adminer
     image: adminer
   browsh:
-    container_name: ggiannit_browsh
-    build: requirements/bonus/browsh
-    image: browsh
+    image: browsh/browsh
+    # container_name: ggiannit_browsh
+    # build: requirements/bonus/browsh
+    # image: browsh
 
 networks:
   default:
