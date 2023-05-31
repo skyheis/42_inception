@@ -35,34 +35,43 @@ services:
     env_file:
       - .env
 
+  #bonus
   redis:
     container_name: ggiannit_redis
     build: requirements/bonus/redis
     image: redis
+  
   ftp:
     container_name: ggiannit_ftp
     build: requirements/bonus/ftp
     image: ftp
     volumes:
       - wp:/var/www/html
+    ports:
+      - 21:21
     env_file:
       - .env
+  
   static:
     container_name: ggiannit_static
     build: requirements/bonus/static
     image: static
+  
   adminer:
     container_name: ggiannit_adminer
     build: requirements/bonus/adminer
     image: adminer
+  
   browsh:
     container_name: ggiannit_browsh
     build: requirements/bonus/browsh
     image: browsh
 
+
 networks:
   default:
     name: ggiannit_inception
+
 
 volumes:
   wp:
