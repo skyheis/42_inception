@@ -45,6 +45,8 @@ services:
     image: ftp
     volumes:
       - wp:/var/www/html
+    env_file:
+      - .env
   static:
     container_name: ggiannit_static
     build: requirements/bonus/static
