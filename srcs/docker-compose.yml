@@ -1,6 +1,16 @@
 version: '3.5'
 
 services:
+  ftp:
+    container_name: ggiannit_ftp
+    build: requirements/bonus/ftp
+    image: ftp
+    ports:
+      - 1000:21
+    volumes:
+      - wp:/var/www/html
+    env_file:
+      - .env
   nginx:
     container_name: ggiannit_nginx
     build: requirements/nginx
@@ -36,16 +46,6 @@ services:
     container_name: ggiannit_redis
     build: requirements/bonus/redis
     image: redis
-  ftp:
-    container_name: ggiannit_ftp
-    build: requirements/bonus/ftp
-    image: ftp
-    ports:
-      - 1000:21
-    volumes:
-      - wp:/var/www/html
-    env_file:
-      - .env
   static:
     container_name: ggiannit_static
     build: requirements/bonus/static
