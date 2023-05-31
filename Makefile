@@ -31,7 +31,7 @@ browsh:
 keygen:
 	@mkdir -p /root/certs/private
 	@mkdir -p /root/certs/certs
-	ifeq ("$(wildcard /root/certs/private/ggiannit.42.fr.key)","")
+	ifeq (,$(wildcard /root/certs/private/ggiannit.42.fr.key))
 		@echo "Generating the cert and the key in /root/certs"
 		openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 		-subj "/C=IT/ST=Italy/L=Florence/O=42/OU=42Firenze/CN=ggiannit.42.fr" \
