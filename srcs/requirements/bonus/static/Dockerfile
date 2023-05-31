@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y \
 	nginx\
 	&& rm -rf /var/lib/apt/lists/*
 
-EXPOSE 80
+EXPOSE 8080
 
 COPY ./conf/portfolio.conf /etc/nginx/conf.d
 
