@@ -1,7 +1,7 @@
 FROM debian:stable-20230411
 
 RUN apt-get update && apt-get install -y \
-	vsftpd \
+	vsftpd openssl \
 	&& rm -rf /var/lib/apt/lists/*
 
 EXPOSE 21
