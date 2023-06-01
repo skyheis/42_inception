@@ -4,11 +4,9 @@
 This project was about creating a docker-compose with relative Dockerimage for a simple LAMP stack.
 
 ## Considerations
-I think this is a good project to learn how to use docker and docker-compose, it's a good way to learn how to use the dockerfile and the docker-compose.yml file.
+As a system administrator, I didn't have trouble to do this project, I already had a good knowledge of docker and docker-compose, I also had a good knowledge of the services used in this project. But I think this project is a good way to learn how to use docker and docker-compose, it's a good way to learn how to use the dockerfile and the docker-compose.yml file. 
 
-It's also a good way to learn how to use the docker volumes and how to use the docker network.
-
-But without a previous knowledge of system administration it's hard to understand how to use install and configure every the dockerfile and configure every service.
+Without a previous knowledge of system administration it's hard to understand how to use install and configure every the dockerfile and configure every service.
 
 My advice is to learn how to use docker and docker-compose before starting this project, by doing some tutorials and reading the documentation.
 
