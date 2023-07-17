@@ -12,7 +12,7 @@ deamon: build
 
 build:
 	docker-compose $(LOCATION) build
-	tar -cjf srcs/requirements/bonus/static/conf/portfolio.tar.gz  srcs/requirements/bonus/static/conf/portfolio
+	tar -xjf srcs/requirements/bonus/static/conf/portfolio.tar.gz  srcs/requirements/bonus/static/conf/portfolio
 
 clean:
 	docker-compose $(LOCATION) down
