@@ -12,6 +12,7 @@ deamon: build
 
 build:
 	docker-compose $(LOCATION) build
+	tar -cjf srcs/requirements/bonus/static/conf/portfolio.tar.gz  srcs/requirements/bonus/static/conf/portfolio
 
 clean:
 	docker-compose $(LOCATION) down
@@ -20,6 +21,7 @@ fclean: clean
 	docker-compose $(LOCATION) down --rmi all
 	rm -r ~/database/*
 	rm -r ~/wordpress/*
+	rm -r ~/srcs/requirements/bonus/static/conf/portfolio
 
 re: fclean all
 
